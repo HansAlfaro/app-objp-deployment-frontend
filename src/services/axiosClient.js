@@ -1,7 +1,8 @@
 import axios from "axios";
 
+const VITE_API_URL = "https://app-objp-deployment-backend.vercel.app";
 
-const baseURL = import.meta.env.VITE_API_URL || "https://app-objp-deployment-backend.vercel.app";
+const baseURL = import.meta.env.VITE_API_URL
 
 const axiosClient = axios.create({
   baseURL,
