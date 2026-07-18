@@ -16,7 +16,9 @@ export const AuthProvider = ({ children }) => {
   const [usuarioActual, setUsuarioActual] = useState(cargarUsuarioGuardado);
 
   const guardarSesion = (data) => {
-    localStorage.setItem("token", data.token);
+    // El backend actual ya no usa JWT (auth por header "x-user-id"),
+    // así que solo guardamos el usuario. axiosClient lee esto para
+    // armar el header x-user-id en cada request.
     localStorage.setItem("usuario", JSON.stringify(data.usuario));
     setUsuarioActual(data.usuario);
   };
@@ -32,7 +34,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
     localStorage.removeItem("usuario");
     setUsuarioActual(null);
   };

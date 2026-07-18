@@ -1,12 +1,12 @@
 import axiosClient from "./axiosClient";
 
-// POST /auth/login -> { success, message, token, usuario }
+// POST /auth/login -> { success, message, usuario }
 const login = async (codigo, password, rol) => {
   const { data } = await axiosClient.post("/auth/login", { codigo, password, rol });
   return data;
 };
 
-// POST /auth/registrar -> { success, message, token, usuario }
+// POST /auth/registrar -> { success, message, usuario }
 const registrar = async ({ codigo, nombre, password, rol }) => {
   const { data } = await axiosClient.post("/auth/registrar", { codigo, nombre, password, rol });
   return data;
